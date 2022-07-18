@@ -56,10 +56,15 @@ class TaskTableViewController: UITableViewController {
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell", for: indexPath)
-        
+
         cell.textLabel?.text = settingElementsArray[indexPath.section][indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
-
+        /*  아래로 바뀌는듯....
+        var content = cell.defaultContentConfiguration()
+        content.text = settingElementsArray[indexPath.section][indexPath.row]
+        content.textProperties.font = UIFont.systemFont(ofSize: 15)
+        cell.contentConfiguration = content
+         */
         return cell
     }
    
