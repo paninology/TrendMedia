@@ -61,36 +61,51 @@ class SettingTableViewController: UITableViewController {
     
     //2. 셀의 디자인과 데이터(필수)
     //ex. 카톡 이점팔, 프로필 사진, 상태 메시지 등
+    //재사용 메커니즘
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        print("cellforrowat", indexPath)
         
-        //cell * 100
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell")!
-        
-        if indexPath.section == 0 {
-      
-            cell.textLabel?.text = birthdayFriend[indexPath.row]
-           
-            cell.textLabel?.textColor = .systemMint
-            cell.textLabel?.font = .boldSystemFont(ofSize: 20)
-        } else if indexPath.section == 1 {
-            cell.textLabel?.text = " 1번 인덱스셀 텍스트 "
-            cell.textLabel?.textColor = .systemPink
-            cell.textLabel?.font = .boldSystemFont(ofSize: 20)
-        } else if indexPath.section == 2 {
+        if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "rightDetailCell")!
             cell.textLabel?.text = " 2번 인덱스셀 텍스트 "
             cell.textLabel?.textColor = .systemRed
             cell.textLabel?.font = .boldSystemFont(ofSize: 20)
-        } else {
+            cell.detailTextLabel?.text = "디테일 레이블"
             
+            //indexPath.row % 2 == 0 or 1
+            
+            if indexPath.row % 2 == 0 {
+                cell.imageView?.image = UIImage(systemName: "star")
+                cell.backgroundColor = .lightGray
+            } else {
+                
+                cell.imageView?.image = UIImage(systemName: "star.fill")
+                cell.backgroundColor = .white
+            }
+            //삼항연산자
+            cell.imageView?.image = indexPath.row % 2 == 0 ? UIImage(systemName: "star") : UIImage(systemName: "star.fill")
+            cell.backgroundColor = indexPath.row % 2 == 0 ? .lightGray : .white
+            
+            return cell
+        } else {
+      
+            let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell")!
+            
+            if indexPath.section == 0 {
+          
+                cell.textLabel?.text = birthdayFriend[indexPath.row]
+               
+                cell.textLabel?.textColor = .systemMint
+                cell.textLabel?.font = .boldSystemFont(ofSize: 20)
+            } else if indexPath.section == 1 {
+                cell.textLabel?.text = " 1번 인덱스셀 텍스트 "
+                cell.textLabel?.textColor = .systemPink
+                cell.textLabel?.font = .boldSystemFont(ofSize: 20)
+            }
+            return cell
+        
         }
-        
-      return cell
-        
+    
     }
-    
-    
-    
-   
-
 }
