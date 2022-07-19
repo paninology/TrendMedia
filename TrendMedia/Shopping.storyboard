@@ -16,13 +16,67 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="1To-zR-hpC">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="쇼핑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5r2-RI-exb">
+                                    <rect key="frame" x="20" y="8" width="374" height="32"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="XSQ-Fw-3CV"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQC-bG-cdN">
+                                    <rect key="frame" x="8" y="48" width="398" height="64"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="무엇을 구매하실 건가요?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnt-Ph-x1l">
+                                            <rect key="frame" x="8" y="8" width="312" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="userTextFieldEntered:" destination="Suw-xQ-Huj" eventType="editingDidEndOnExit" id="iqJ-vf-JlM"/>
+                                            </connections>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xp2-1E-Jeu">
+                                            <rect key="frame" x="328" y="12" width="62" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="62" id="HTH-qo-aG1"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="추가"/>
+                                            <connections>
+                                                <action selector="addButtonClicked:" destination="Suw-xQ-Huj" eventType="touchUpInside" id="jqe-tE-wPW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="tnt-Ph-x1l" firstAttribute="leading" secondItem="iQC-bG-cdN" secondAttribute="leading" constant="8" id="3OQ-Hy-LGp"/>
+                                        <constraint firstAttribute="trailing" secondItem="xp2-1E-Jeu" secondAttribute="trailing" constant="8" id="J46-aS-uHe"/>
+                                        <constraint firstItem="xp2-1E-Jeu" firstAttribute="top" secondItem="iQC-bG-cdN" secondAttribute="top" constant="12" id="Q3e-3a-sus"/>
+                                        <constraint firstItem="xp2-1E-Jeu" firstAttribute="leading" secondItem="tnt-Ph-x1l" secondAttribute="trailing" constant="8" id="UDj-N6-mNz"/>
+                                        <constraint firstAttribute="bottom" secondItem="tnt-Ph-x1l" secondAttribute="bottom" constant="8" id="kVn-Eg-lMi"/>
+                                        <constraint firstAttribute="bottom" secondItem="xp2-1E-Jeu" secondAttribute="bottom" constant="12" id="nm0-R4-TtT"/>
+                                        <constraint firstItem="tnt-Ph-x1l" firstAttribute="top" secondItem="iQC-bG-cdN" secondAttribute="top" constant="8" id="sIU-uS-Itl"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="iQC-bG-cdN" secondAttribute="trailing" constant="8" id="BwM-ef-z9b"/>
+                                <constraint firstAttribute="bottom" secondItem="iQC-bG-cdN" secondAttribute="bottom" constant="8" id="CGW-YC-IPk"/>
+                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="5r2-RI-exb" secondAttribute="trailing" constant="20" id="TaD-vD-JDv"/>
+                                <constraint firstItem="5r2-RI-exb" firstAttribute="top" secondItem="1To-zR-hpC" secondAttribute="top" constant="8" id="jvj-6g-N9m"/>
+                                <constraint firstItem="5r2-RI-exb" firstAttribute="leading" relation="lessThanOrEqual" secondItem="1To-zR-hpC" secondAttribute="leading" constant="20" id="pEe-mD-VxS"/>
+                                <constraint firstItem="iQC-bG-cdN" firstAttribute="leading" secondItem="1To-zR-hpC" secondAttribute="leading" constant="8" id="sFx-Je-ITb"/>
+                                <constraint firstItem="iQC-bG-cdN" firstAttribute="top" secondItem="5r2-RI-exb" secondAttribute="bottom" constant="8" id="wFj-LU-COb"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingUserTextFieldTableViewCell" id="8J0-JC-Qgs" customClass="ShoppingUserTextFieldTableViewCell" customModule="TrendMedia" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="133.5" width="414" height="50.5"/>
+                                <rect key="frame" x="0.0" y="164.5" width="414" height="50.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8J0-JC-Qgs" id="w6N-WY-Gnz">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="50.5"/>
@@ -64,14 +118,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingListTableViewCell" id="fXp-OF-jdT" customClass="ShoppingListTableViewCell" customModule="TrendMedia" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="184" width="414" height="59"/>
+                                <rect key="frame" x="0.0" y="215" width="414" height="59.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fXp-OF-jdT" id="PTo-Gh-sw3">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejb-Jc-sCE">
-                                            <rect key="frame" x="8" y="8" width="44" height="43"/>
+                                            <rect key="frame" x="8" y="8" width="44" height="43.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="dNR-6Z-fAf"/>
                                             </constraints>
@@ -82,7 +136,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIY-k8-B1J">
-                                            <rect key="frame" x="362" y="8" width="44" height="43"/>
+                                            <rect key="frame" x="362" y="8" width="44" height="43.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="O5e-hO-mON"/>
                                             </constraints>
@@ -93,7 +147,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dasdfasdfasdfasdfasdfaf\" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSW-A6-mnI">
-                                            <rect key="frame" x="60" y="19" width="294" height="21"/>
+                                            <rect key="frame" x="60" y="19" width="294" height="21.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -124,6 +178,11 @@
                             <outlet property="delegate" destination="Suw-xQ-Huj" id="R5O-a0-RUP"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="addButton" destination="xp2-1E-Jeu" id="1VN-Xl-qWd"/>
+                        <outlet property="uppperView" destination="iQC-bG-cdN" id="jR7-Q7-Wn7"/>
+                        <outlet property="userTextField" destination="tnt-Ph-x1l" id="x2X-gp-hrh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHy-WI-FZp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

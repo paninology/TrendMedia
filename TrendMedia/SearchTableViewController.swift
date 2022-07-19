@@ -7,15 +7,43 @@
 
 import UIKit
 
+struct Movie {
+    let title: String
+    let date: String
+    let story: String
+}
+
 class SearchTableViewController: UITableViewController {
 
-    var movies = ["바람과 함께 사라지다", "성난 황소", "신과 함께", "위대한 개츠비"]
+    @IBOutlet weak var upperView: UIView!
+    @IBOutlet weak var viewForTextField: UIView!
+    @IBOutlet weak var searchTextField: UITextField!
+    
+    
+    
+    var movies = [
+        Movie(title: "바람과 함께 사라지다", date: "1960/01/01", story: "재미있는 내용"),
+        Movie(title: "성난 황소", date: "1990/01/01", story: "복싱하는 내용"),
+        Movie(title: "택시 드라이버", date: "1993/03/03", story: "싸우는 내용")
+        ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewForTextField.backgroundColor = .systemGray5
+        viewForTextField.layer.cornerRadius = 5
+        searchTextField.backgroundColor = .systemGray5
+        searchTextField.borderStyle = .none
+        
        
     }
+    
+    @IBAction func textClearButtonClicked(_ sender: UIButton) {
+        searchTextField.text = nil
+    }
+    @IBAction func cancelButtonClicked(_ sender: UIButton) {
+        upperView.isHidden = true
+    }
+    
 
     // MARK: - Table view data source
 
@@ -28,16 +56,19 @@ class SearchTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return movies.count
     }
-
-    /*
+  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+        
+        
+        cell.movieTitleLabel.text = movies[indexPath.row].title
+        cell.movieDateLabel.text = movies[indexPath.row].date
+        cell.movieStoryLabel.text = movies[indexPath.row].story
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

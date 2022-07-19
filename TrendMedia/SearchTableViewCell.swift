@@ -8,7 +8,11 @@
 import UIKit
 
 class SearchTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var movieDateLabel: UILabel!
+    @IBOutlet weak var movieStoryLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
