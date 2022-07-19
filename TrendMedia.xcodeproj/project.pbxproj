@@ -30,6 +30,8 @@
 		8F5904D42886774500F98041 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904D32886774500F98041 /* ShoppingListTableViewCell.swift */; };
 		8F5904D62886776800F98041 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904D52886776800F98041 /* ShoppingListTableViewController.swift */; };
 		8F5904D8288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904D7288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift */; };
+		8F5904DA2886889100F98041 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904D92886889100F98041 /* SearchTableViewCell.swift */; };
+		8F5904DC288688EB00F98041 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904DB288688EB00F98041 /* SearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		8F5904D32886774500F98041 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 		8F5904D52886776800F98041 /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
 		8F5904D7288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingUserTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		8F5904D92886889100F98041 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		8F5904DB288688EB00F98041 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,15 +96,17 @@
 			children = (
 				8F5904D12886729800F98041 /* Shopping.storyboard */,
 				8F5904D7288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift */,
-				8F5904D52886776800F98041 /* ShoppingListTableViewController.swift */,
 				8F5904D32886774500F98041 /* ShoppingListTableViewCell.swift */,
+				8F5904D52886776800F98041 /* ShoppingListTableViewController.swift */,
 				8F5904BB28850FD200F98041 /* Setting.storyboard */,
 				8F5904BF2886401C00F98041 /* Search.storyboard */,
+				8F5904D92886889100F98041 /* SearchTableViewCell.swift */,
+				8F5904DB288688EB00F98041 /* SearchTableViewController.swift */,
 				8F5904C12886403B00F98041 /* Trend.storyboard */,
 				8F5904CF28864D9600F98041 /* BucketListTableViewCell.swift */,
 				8F5904CD28864B9400F98041 /* BucketListTableViewController.swift */,
-				8F5904C72886440B00F98041 /* SearchViewController.swift */,
 				8F5904C5288643F500F98041 /* TrendViewController.swift */,
+				8F5904C72886440B00F98041 /* SearchViewController.swift */,
 				8F5904C92886452B00F98041 /* UIViewController+Extension.swift */,
 				8F5904CB2886478D00F98041 /* UITextFeild+Extension.swift */,
 				8F5904C3288640A400F98041 /* Intro.storyboard */,
@@ -202,8 +208,10 @@
 				8F5904CC2886478D00F98041 /* UITextFeild+Extension.swift in Sources */,
 				8F5904D8288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift in Sources */,
 				8F5904C82886440B00F98041 /* SearchViewController.swift in Sources */,
+				8F5904DC288688EB00F98041 /* SearchTableViewController.swift in Sources */,
 				8F5904BA2884FE3B00F98041 /* SettingTableViewController.swift in Sources */,
 				8F5904A82884DDDF00F98041 /* ViewController.swift in Sources */,
+				8F5904DA2886889100F98041 /* SearchTableViewCell.swift in Sources */,
 				8F5904A42884DDDF00F98041 /* AppDelegate.swift in Sources */,
 				8F5904D42886774500F98041 /* ShoppingListTableViewCell.swift in Sources */,
 				8F5904D62886776800F98041 /* ShoppingListTableViewController.swift in Sources */,

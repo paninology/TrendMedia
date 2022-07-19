@@ -1,5 +1,5 @@
 //
-//  ShopingListTableViewController.swift
+//  SearchTableViewController.swift
 //  TrendMedia
 //
 //  Created by yongseok lee on 2022/07/19.
@@ -7,67 +7,37 @@
 
 import UIKit
 
-class ShoppingListTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController {
 
-  
-    
-    var shoppingList = ["그립톡 구매하기", "사이다 구매", "양말"]
+    var movies = ["바람과 함께 사라지다", "성난 황소", "신과 함께", "위대한 개츠비"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-      
+       
     }
-    
- 
-    
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return shoppingList.count
-        }
-        
+        // #warning Incomplete implementation, return the number of rows
+        return movies.count
     }
 
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingUserTextFieldTableViewCell", for: indexPath) as! ShoppingUserTextFieldTableViewCell
-            cell.layer.cornerRadius = 10
-            cell.clipsToBounds = true
-            cell.backgroundColor = .systemGray6
-            cell.addButton.layer.cornerRadius = 8
-            cell.addButton.backgroundColor = .systemGray5
-            cell.userTextField.backgroundColor = .systemGray6
-            cell.userTextField.borderStyle = .none
-      
-            
-            return cell
-            
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        } else {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingListTableViewCell", for: indexPath) as! ShoppingListTableViewCell
-            cell.layer.cornerRadius = 8
-            cell.clipsToBounds = true
-            cell.backgroundColor = .systemGray6
-            
-            cell.shoppingLabel.text = shoppingList[indexPath.row]
-            
-            
-            return cell
-        }
-        
+        // Configure the cell...
+
+        return cell
     }
-   
+    */
 
     /*
     // Override to support conditional editing of the table view.

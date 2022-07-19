@@ -1,5 +1,5 @@
 //
-//  ShopingUserTextFieldTableViewCell.swift
+//  SearchTableViewCell.swift
 //  TrendMedia
 //
 //  Created by yongseok lee on 2022/07/19.
@@ -7,13 +7,8 @@
 
 import UIKit
 
-class ShoppingUserTextFieldTableViewCell: UITableViewCell {
+class SearchTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var userTextField: UITextField!
-    @IBOutlet weak var addButton: UIButton!
-    
-     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,10 +20,4 @@ class ShoppingUserTextFieldTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    @IBAction func userTextFieldEntered(_ sender: UITextField) {
-       
-    }
-    
-    @IBAction func addButton(_ sender: UIButton) {
-    }
 }
