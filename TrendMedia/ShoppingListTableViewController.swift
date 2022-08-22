@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ShoppingListTableViewController: UITableViewController {
 
@@ -13,8 +14,9 @@ class ShoppingListTableViewController: UITableViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var uppperView: UIView!
     
-    
+    let localRealm = try! Realm()
     var shoppingList = ["그립톡 구매하기", "사이다 구매", "양말"]
+    var shoppings: Results<String>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +29,23 @@ class ShoppingListTableViewController: UITableViewController {
     }
     
     @IBAction func addButtonClicked(_ sender: UIButton) {
-        shoppingList.append(userTextField.text!)
+        guard let text = userTextField.text else { return }
+//        shoppingList.append(userTextField.text!)
+        let task = ShoppingList(shoppingTitle: text, regDate: Date())
+        try! localRealm.write{
+            localRealm.add(task)
+        }
         userTextField.text = nil
         tableView.reloadData()
     }
     
     @IBAction func userTextFieldEntered(_ sender: UITextField) {
-        shoppingList.append(userTextField.text!)
+//        shoppingList.append(userTextField.text!)
+        guard let text = userTextField.text else { return }
+        let task = ShoppingList(shoppingTitle: text, regDate: Date())
+        try! localRealm.write{
+            localRealm.add(task)
+        }
         userTextField.text = nil
         tableView.reloadData()
     }
@@ -83,29 +95,7 @@ class ShoppingListTableViewController: UITableViewController {
     }
  
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+    
 
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -7,11 +7,6 @@
 
 import UIKit
 
-struct Movie {
-    let title: String
-    let date: String
-    let story: String
-}
 
 class SearchTableViewController: UITableViewController {
 
@@ -21,12 +16,10 @@ class SearchTableViewController: UITableViewController {
     
     
     
-    var movies = [
-        Movie(title: "바람과 함께 사라지다", date: "1960/01/01", story: "재미있는 내용"),
-        Movie(title: "성난 황소", date: "1990/01/01", story: "복싱하는 내용"),
-        Movie(title: "택시 드라이버", date: "1993/03/03", story: "싸우는 내용")
-        ]
-    
+    var movies = MovieInfo()
+        
+ 
+    //MARK: VC의 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         viewForTextField.backgroundColor = .systemGray5
@@ -34,8 +27,28 @@ class SearchTableViewController: UITableViewController {
         searchTextField.backgroundColor = .systemGray5
         searchTextField.borderStyle = .none
         
-       
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "처음으로", style: .plain, target: self, action: #selector(resetButtonClicked))
+        print(#function)
+        
+        print("MY WOLD")
+ 
     }
+    //MARK: 일반펑션
+    
+    ///시작화면으로 돌아가는 메서드
+    @objc func resetButtonClicked() {
+        //ios13 SceneDelegate 쓸때 가능
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        let sb = UIStoryboard(name: "Trend", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+        
+        sceneDelegate?.window?.rootViewController = vc
+        sceneDelegate?.window?.makeKeyAndVisible()
+    }
+    //MARK: 액션
+    
     
     @IBAction func textClearButtonClicked(_ sender: UIButton) {
         searchTextField.text = nil
@@ -54,65 +67,34 @@ class SearchTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return movies.count
+        return movies.movie.count
     }
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
-        
-        
-        cell.movieTitleLabel.text = movies[indexPath.row].title
-        cell.movieDateLabel.text = movies[indexPath.row].date
-        cell.movieStoryLabel.text = movies[indexPath.row].story
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell 
+        let data = movies.movie[indexPath.row]
+        cell.configureCell(data: data)
         
 
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return (UIScreen.main.bounds.height / 8)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("didselectRowAt")
+        let sb = UIStoryboard(name: "Trend", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "RecommandCollectionViewController") as! RecommandCollectionViewController
+        
+        //2. 값 전달 - vc가 가지고 있는 프로퍼티에 데이터 추가 
+        vc.movie = movies.movie[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+    
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

@@ -1,19 +1,18 @@
 //
-//  SearchViewController.swift
+//  WelcomeViewController.swift
 //  TrendMedia
 //
-//  Created by yongseok lee on 2022/07/19.
+//  Created by yongseok lee on 2022/07/22.
 //
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setBackgroundColor()
-        
+        // Do any additional setup after loading the view.
     }
     
 

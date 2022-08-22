@@ -13,7 +13,7 @@ class BucketListTableViewCell: UITableViewCell {
     @IBOutlet weak var bucketListLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    
+    static let identifier = "BucketListTableViewCell"
     
     
     override func awakeFromNib() {

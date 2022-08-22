@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0E3A222887C613002D6C13 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 8F0E3A212887C613002D6C13 /* Toast */; };
+		8F49F8122888E7410067BB1A /* TrendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F49F8112888E7410067BB1A /* TrendTableViewController.swift */; };
+		8F4F11E128B347090041CE1E /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4F11E028B347090041CE1E /* Realm */; };
+		8F4F11E328B347090041CE1E /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8F4F11E228B347090041CE1E /* RealmSwift */; };
+		8F4F11E628B348B50041CE1E /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F11E528B348B50041CE1E /* RealmModel.swift */; };
+		8F51B0EA288A3F8C00880DD8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F51B0E9288A3F8C00880DD8 /* WelcomeViewController.swift */; };
+		8F54A46828878C9E008F5B0F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54A46728878C9E008F5B0F /* Movie.swift */; };
+		8F54A46A28879536008F5B0F /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54A46928879536008F5B0F /* MovieInfo.swift */; };
+		8F54A46C28879A9E008F5B0F /* RecommandCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54A46B28879A9E008F5B0F /* RecommandCollectionViewController.swift */; };
+		8F54A46E28879DE9008F5B0F /* RecommandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54A46D28879DE9008F5B0F /* RecommandCollectionViewCell.swift */; };
+		8F54A4712887AE4B008F5B0F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8F54A4702887AE4B008F5B0F /* Kingfisher */; };
 		8F5904A42884DDDF00F98041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904A32884DDDF00F98041 /* AppDelegate.swift */; };
 		8F5904A62884DDDF00F98041 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904A52884DDDF00F98041 /* SceneDelegate.swift */; };
 		8F5904A82884DDDF00F98041 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904A72884DDDF00F98041 /* ViewController.swift */; };
@@ -20,8 +31,6 @@
 		8F5904C02886401C00F98041 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5904BF2886401C00F98041 /* Search.storyboard */; };
 		8F5904C22886403B00F98041 /* Trend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5904C12886403B00F98041 /* Trend.storyboard */; };
 		8F5904C4288640A400F98041 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F5904C3288640A400F98041 /* Intro.storyboard */; };
-		8F5904C6288643F500F98041 /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904C5288643F500F98041 /* TrendViewController.swift */; };
-		8F5904C82886440B00F98041 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904C72886440B00F98041 /* SearchViewController.swift */; };
 		8F5904CA2886452B00F98041 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904C92886452B00F98041 /* UIViewController+Extension.swift */; };
 		8F5904CC2886478D00F98041 /* UITextFeild+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904CB2886478D00F98041 /* UITextFeild+Extension.swift */; };
 		8F5904CE28864B9400F98041 /* BucketListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904CD28864B9400F98041 /* BucketListTableViewController.swift */; };
@@ -35,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F49F8112888E7410067BB1A /* TrendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewController.swift; sourceTree = "<group>"; };
+		8F4F11E528B348B50041CE1E /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		8F51B0E9288A3F8C00880DD8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		8F54A46728878C9E008F5B0F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		8F54A46928879536008F5B0F /* MovieInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
+		8F54A46B28879A9E008F5B0F /* RecommandCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewController.swift; sourceTree = "<group>"; };
+		8F54A46D28879DE9008F5B0F /* RecommandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F5904A02884DDDF00F98041 /* TrendMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F5904A32884DDDF00F98041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F5904A52884DDDF00F98041 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +66,6 @@
 		8F5904BF2886401C00F98041 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		8F5904C12886403B00F98041 /* Trend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trend.storyboard; sourceTree = "<group>"; };
 		8F5904C3288640A400F98041 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
-		8F5904C5288643F500F98041 /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
-		8F5904C72886440B00F98041 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8F5904C92886452B00F98041 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		8F5904CB2886478D00F98041 /* UITextFeild+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextFeild+Extension.swift"; sourceTree = "<group>"; };
 		8F5904CD28864B9400F98041 /* BucketListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListTableViewController.swift; sourceTree = "<group>"; };
@@ -69,12 +83,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4F11E328B347090041CE1E /* RealmSwift in Frameworks */,
+				8F4F11E128B347090041CE1E /* Realm in Frameworks */,
+				8F0E3A222887C613002D6C13 /* Toast in Frameworks */,
+				8F54A4712887AE4B008F5B0F /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F4F11E428B348960041CE1E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				8F4F11E528B348B50041CE1E /* RealmModel.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		8F51B0E8288A258100880DD8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8F5904C92886452B00F98041 /* UIViewController+Extension.swift */,
+				8F5904CB2886478D00F98041 /* UITextFeild+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8F5904972884DDDF00F98041 = {
 			isa = PBXGroup;
 			children = (
@@ -94,29 +129,33 @@
 		8F5904A22884DDDF00F98041 /* TrendMedia */ = {
 			isa = PBXGroup;
 			children = (
+				8F51B0E8288A258100880DD8 /* Extensions */,
+				8F4F11E428B348960041CE1E /* Realm */,
+				8F5904C3288640A400F98041 /* Intro.storyboard */,
 				8F5904D12886729800F98041 /* Shopping.storyboard */,
 				8F5904D7288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift */,
 				8F5904D32886774500F98041 /* ShoppingListTableViewCell.swift */,
 				8F5904D52886776800F98041 /* ShoppingListTableViewController.swift */,
 				8F5904BF2886401C00F98041 /* Search.storyboard */,
+				8F54A46728878C9E008F5B0F /* Movie.swift */,
+				8F54A46928879536008F5B0F /* MovieInfo.swift */,
 				8F5904D92886889100F98041 /* SearchTableViewCell.swift */,
 				8F5904DB288688EB00F98041 /* SearchTableViewController.swift */,
 				8F5904BB28850FD200F98041 /* Setting.storyboard */,
+				8F5904B92884FE3B00F98041 /* SettingTableViewController.swift */,
 				8F5904C12886403B00F98041 /* Trend.storyboard */,
+				8F51B0E9288A3F8C00880DD8 /* WelcomeViewController.swift */,
+				8F49F8112888E7410067BB1A /* TrendTableViewController.swift */,
+				8F54A46D28879DE9008F5B0F /* RecommandCollectionViewCell.swift */,
+				8F54A46B28879A9E008F5B0F /* RecommandCollectionViewController.swift */,
 				8F5904CF28864D9600F98041 /* BucketListTableViewCell.swift */,
 				8F5904CD28864B9400F98041 /* BucketListTableViewController.swift */,
-				8F5904C5288643F500F98041 /* TrendViewController.swift */,
-				8F5904C72886440B00F98041 /* SearchViewController.swift */,
-				8F5904C92886452B00F98041 /* UIViewController+Extension.swift */,
-				8F5904CB2886478D00F98041 /* UITextFeild+Extension.swift */,
-				8F5904C3288640A400F98041 /* Intro.storyboard */,
-				8F5904A32884DDDF00F98041 /* AppDelegate.swift */,
-				8F5904A52884DDDF00F98041 /* SceneDelegate.swift */,
 				8F5904A72884DDDF00F98041 /* ViewController.swift */,
-				8F5904B92884FE3B00F98041 /* SettingTableViewController.swift */,
 				8F5904A92884DDDF00F98041 /* Main.storyboard */,
 				8F5904B72884F10900F98041 /* Home.storyboard */,
 				8F5904BD28851EAF00F98041 /* TaskTableViewController.swift */,
+				8F5904A32884DDDF00F98041 /* AppDelegate.swift */,
+				8F5904A52884DDDF00F98041 /* SceneDelegate.swift */,
 				8F5904AC2884DDDF00F98041 /* Assets.xcassets */,
 				8F5904AE2884DDDF00F98041 /* LaunchScreen.storyboard */,
 				8F5904B12884DDDF00F98041 /* Info.plist */,
@@ -140,6 +179,12 @@
 			dependencies = (
 			);
 			name = TrendMedia;
+			packageProductDependencies = (
+				8F54A4702887AE4B008F5B0F /* Kingfisher */,
+				8F0E3A212887C613002D6C13 /* Toast */,
+				8F4F11E028B347090041CE1E /* Realm */,
+				8F4F11E228B347090041CE1E /* RealmSwift */,
+			);
 			productName = TrendMedia;
 			productReference = 8F5904A02884DDDF00F98041 /* TrendMedia.app */;
 			productType = "com.apple.product-type.application";
@@ -168,6 +213,13 @@
 				Base,
 			);
 			mainGroup = 8F5904972884DDDF00F98041;
+			packageReferences = (
+				8F54A46F2887AE4B008F5B0F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				8F54A4722887AE64008F5B0F /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				8F0E3A202887C613002D6C13 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				8F4F11DE28B346A50041CE1E /* XCRemoteSwiftPackageReference "realm-swift" */,
+				8F4F11DF28B347090041CE1E /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 8F5904A12884DDDF00F98041 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -201,22 +253,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F54A46C28879A9E008F5B0F /* RecommandCollectionViewController.swift in Sources */,
+				8F4F11E628B348B50041CE1E /* RealmModel.swift in Sources */,
+				8F51B0EA288A3F8C00880DD8 /* WelcomeViewController.swift in Sources */,
 				8F5904CA2886452B00F98041 /* UIViewController+Extension.swift in Sources */,
+				8F49F8122888E7410067BB1A /* TrendTableViewController.swift in Sources */,
 				8F5904D028864D9600F98041 /* BucketListTableViewCell.swift in Sources */,
+				8F54A46E28879DE9008F5B0F /* RecommandCollectionViewCell.swift in Sources */,
 				8F5904CE28864B9400F98041 /* BucketListTableViewController.swift in Sources */,
 				8F5904BE28851EAF00F98041 /* TaskTableViewController.swift in Sources */,
 				8F5904CC2886478D00F98041 /* UITextFeild+Extension.swift in Sources */,
 				8F5904D8288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift in Sources */,
-				8F5904C82886440B00F98041 /* SearchViewController.swift in Sources */,
 				8F5904DC288688EB00F98041 /* SearchTableViewController.swift in Sources */,
 				8F5904BA2884FE3B00F98041 /* SettingTableViewController.swift in Sources */,
 				8F5904A82884DDDF00F98041 /* ViewController.swift in Sources */,
+				8F54A46A28879536008F5B0F /* MovieInfo.swift in Sources */,
 				8F5904DA2886889100F98041 /* SearchTableViewCell.swift in Sources */,
 				8F5904A42884DDDF00F98041 /* AppDelegate.swift in Sources */,
 				8F5904D42886774500F98041 /* ShoppingListTableViewCell.swift in Sources */,
 				8F5904D62886776800F98041 /* ShoppingListTableViewController.swift in Sources */,
-				8F5904C6288643F500F98041 /* TrendViewController.swift in Sources */,
 				8F5904A62884DDDF00F98041 /* SceneDelegate.swift in Sources */,
+				8F54A46828878C9E008F5B0F /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +491,72 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F0E3A202887C613002D6C13 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		8F4F11DE28B346A50041CE1E /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+		8F4F11DF28B347090041CE1E /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+		8F54A46F2887AE4B008F5B0F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		8F54A4722887AE64008F5B0F /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F0E3A212887C613002D6C13 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F54A4722887AE64008F5B0F /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		8F4F11E028B347090041CE1E /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F4F11DE28B346A50041CE1E /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		8F4F11E228B347090041CE1E /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F4F11DE28B346A50041CE1E /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		8F54A4702887AE4B008F5B0F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F54A46F2887AE4B008F5B0F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8F5904982884DDDF00F98041 /* Project object */;
 }
