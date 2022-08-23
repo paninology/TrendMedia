@@ -16,19 +16,59 @@ class ShoppingListTableViewController: UITableViewController {
     
     let localRealm = try! Realm()
 //    var shoppingList = ["그립톡 구매하기", "사이다 구매", "양말"]
-    var shoppings: Results<ShoppingList>!
+    var shoppings: Results<ShoppingList>! {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+        fetchRealm()
+      
+    }
+    func configure() {
         uppperView.layer.cornerRadius = 8
         uppperView.clipsToBounds = true
         uppperView.backgroundColor = .systemGray6
         addButton.layer.cornerRadius = 8
         addButton.backgroundColor = .systemGray5
-        shoppings = localRealm.objects(ShoppingList.self).sorted(byKeyPath: "regDate", ascending: true)
-        
-      
     }
+    
+    func fetchRealm() {
+        shoppings = localRealm.objects(ShoppingList.self).sorted(byKeyPath: "regDate", ascending: true)
+//        print(shoppings)
+        
+    }
+    
+    @objc func checkButtonClicked(sender: UIButton) {
+        print(sender.tag)
+        do { try self.localRealm.write{
+            self.shoppings[sender.tag].isDone.toggle()
+            fetchRealm()
+//            tableView.reloadData()
+            print("checkButton Succeed")
+            }
+            
+        } catch {
+            print("checkButtonError")
+        }
+    }
+    
+    @objc func starButtonClicked(sender: UIButton) {
+        do { try self.localRealm.write{
+            self.shoppings[sender.tag].favorite.toggle()
+            fetchRealm()
+            print("checkButton Succeed")
+            }
+            
+        } catch {
+            print("checkButtonError")
+        }
+    }
+    
+    
     
     @IBAction func addButtonClicked(_ sender: UIButton) {
         guard let text = userTextField.text else { return }
@@ -38,7 +78,8 @@ class ShoppingListTableViewController: UITableViewController {
             localRealm.add(task)
         }
         userTextField.text = nil
-        tableView.reloadData()
+//        tableView.reloadData()
+        fetchRealm()
     }
     
     @IBAction func userTextFieldEntered(_ sender: UITextField) {
@@ -73,18 +114,24 @@ class ShoppingListTableViewController: UITableViewController {
             cell.layer.cornerRadius = 8
             cell.clipsToBounds = true
             cell.backgroundColor = .systemGray6
-        print(shoppings)
+
         cell.shoppingLabel.text = shoppings[indexPath.row].shoppingTitle
         cell.checkButton.imageView?.image = shoppings[indexPath.row].isDone ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "checkmark.square")
         cell.starButton.imageView?.image = shoppings[indexPath.row].favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
         
-            
-            
+        cell.checkButton.tag = indexPath.row
+        cell.starButton.tag = indexPath.row
+        cell.checkButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
+        cell.starButton.addTarget(self, action: #selector(starButtonClicked), for: .touchUpInside)
+//        self.fetchRealm()
+ 
             return cell
         
     }
    
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row,"didselect====")
+    }
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -99,6 +146,8 @@ class ShoppingListTableViewController: UITableViewController {
             
         }
     }
+    
+   
  
 
     
