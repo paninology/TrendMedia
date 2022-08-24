@@ -48,6 +48,7 @@ class ShoppingListTableViewController: UITableViewController {
             self.shoppings[sender.tag].isDone.toggle()
             fetchRealm()
 //            tableView.reloadData()
+            
             print("checkButton Succeed")
             }
             
@@ -58,7 +59,8 @@ class ShoppingListTableViewController: UITableViewController {
     
     @objc func starButtonClicked(sender: UIButton) {
         do { try self.localRealm.write{
-            self.shoppings[sender.tag].favorite.toggle()
+//            self.shoppings[sender.tag].favorite =  !self.shoppings[sender.tag].favorite
+            self.localRealm.create(ShoppingList.self, value: ["objectId": self.shoppings[sender.tag].objectId, "favorite": !self.shoppings[sender.tag].favorite ], update: .modified)
             fetchRealm()
             print("checkButton Succeed")
             }
