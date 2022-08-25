@@ -12,6 +12,7 @@ class ShoppingListTableViewCell: UITableViewCell {
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var shoppingLabel: UILabel!
+    @IBOutlet weak var shoppingImageView: UIImageView!
     
     
     

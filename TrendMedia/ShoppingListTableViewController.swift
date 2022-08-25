@@ -28,6 +28,10 @@ class ShoppingListTableViewController: UITableViewController {
         fetchRealm()
       
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     func configure() {
         uppperView.layer.cornerRadius = 8
         uppperView.clipsToBounds = true
@@ -40,6 +44,18 @@ class ShoppingListTableViewController: UITableViewController {
         shoppings = localRealm.objects(ShoppingList.self).sorted(byKeyPath: "regDate", ascending: true)
 //        print(shoppings)
         
+    }
+    func loadImageFromDoument(fileName: String) -> UIImage? {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil } //Document 경로
+        let fileURL = documentDirectory.appendingPathComponent(fileName) //세부 파일경로. 이미지 저장할 위치
+        
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            return UIImage(contentsOfFile: fileURL.path)
+            
+        } else {
+            return UIImage(systemName: "xmark")
+        }
+      
     }
     
     @objc func checkButtonClicked(sender: UIButton) {
@@ -58,7 +74,8 @@ class ShoppingListTableViewController: UITableViewController {
     }
     
     @objc func starButtonClicked(sender: UIButton) {
-        do { try self.localRealm.write{
+        do {
+            try self.localRealm.write{
 //            self.shoppings[sender.tag].favorite =  !self.shoppings[sender.tag].favorite
             self.localRealm.create(ShoppingList.self, value: ["objectId": self.shoppings[sender.tag].objectId, "favorite": !self.shoppings[sender.tag].favorite ], update: .modified)
             fetchRealm()
@@ -120,6 +137,7 @@ class ShoppingListTableViewController: UITableViewController {
         cell.shoppingLabel.text = shoppings[indexPath.row].shoppingTitle
         cell.checkButton.imageView?.image = shoppings[indexPath.row].isDone ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "checkmark.square")
         cell.starButton.imageView?.image = shoppings[indexPath.row].favorite ? UIImage(systemName: "star.fill") : UIImage(systemName: "star")
+        cell.shoppingImageView.image = loadImageFromDoument(fileName: "\(shoppings[indexPath.row].objectId).jpg")
         
         cell.checkButton.tag = indexPath.row
         cell.starButton.tag = indexPath.row
@@ -133,6 +151,18 @@ class ShoppingListTableViewController: UITableViewController {
    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row,"didselect====")
+        
+        let vc = ShoppingDetailViewController()
+        let navi = UINavigationController(rootViewController: vc)
+        
+        vc.shoppongTitleLabel.text = shoppings[indexPath.row].shoppingTitle
+        vc.shopping = self.shoppings[indexPath.row]
+//        navigationController?.pushViewController(vc, animated: true)
+        
+        print("didSelect", vc)
+        navi.modalPresentationStyle = .fullScreen
+        present(navi, animated: true)
+        
     }
 
     // Override to support conditional editing of the table view.
