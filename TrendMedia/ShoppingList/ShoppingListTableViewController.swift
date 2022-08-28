@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Zip
 
 class ShoppingListTableViewController: UITableViewController {
 
@@ -14,8 +15,8 @@ class ShoppingListTableViewController: UITableViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var uppperView: UIView!
     
-    let localRealm = try! Realm()
-//    var shoppingList = ["그립톡 구매하기", "사이다 구매", "양말"]
+    let localRealm = try! Realm()  //삭제 추가할것
+
     var shoppings: Results<ShoppingList>! {
         didSet {
             tableView.reloadData()
@@ -26,6 +27,9 @@ class ShoppingListTableViewController: UITableViewController {
         super.viewDidLoad()
         configure()
         fetchRealm()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "백업", style: .plain, target: self, action: #selector(backupButtonClicked))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "복구", style: .plain, target: self, action: #selector(restoreButtonClcked))
       
     }
     
@@ -56,6 +60,57 @@ class ShoppingListTableViewController: UITableViewController {
             return UIImage(systemName: "xmark")
         }
       
+    }
+    
+    func showActivityViewController(){
+        //1-1. 도큐먼트 폴더까지 경로
+        guard let path = documentDirectoryPath() else {
+            showAlert(alterTitle: "도큐먼트 위치에 오류가 있습니다.", alertMessage: "")
+            return
+        }
+        //1-2. 도큐먼트 폴더 경로에 + 렘파일 경로, 확장자까지!
+        let backupFileURL = path.appendingPathComponent("SeSACDiary_1.zip")
+        
+        //1-3. 액티비티뷰컨 활성화해서 저장해주기
+        let vc = UIActivityViewController(activityItems: [backupFileURL], applicationActivities: [])
+        self.present(vc, animated: true)
+    }
+   
+    
+    @objc func backupButtonClicked() {
+//        var urlPath: [URL]
+        var urlPaths = [URL]()
+        
+        guard let path = documentDirectoryPath() else {
+            showAlert(alterTitle: "도큐먼트 위치에 오류가 있습니다.", alertMessage:  "")
+            return
+        }
+        let realmFile = path.appendingPathComponent("default.realm")
+        guard FileManager.default.fileExists(atPath: realmFile.path) else {
+            showAlert(alterTitle: "백업할 파일이 없습니다.", alertMessage: "")
+            return
+        }
+        urlPaths.append(URL(string: realmFile.path)!)
+        
+        do {
+            let zipFilePath = try Zip.quickZipFiles(urlPaths, fileName: "ShoppingList1" )
+            print("Archive Location: \(zipFilePath)")
+            showActivityViewController()
+        } catch {
+            showAlert(alterTitle: "압축에 실패했습니다.", alertMessage: "")
+        }
+        
+        
+    }
+    
+    @objc func restoreButtonClcked() {
+        //피커로 파일 지정
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.archive], asCopy: true)
+        //delegate 채택
+        documentPicker.delegate = self
+        //다중선택 방지
+        documentPicker.allowsMultipleSelection = false
+        self.present(documentPicker, animated: true)
     }
     
     @objc func checkButtonClicked(sender: UIButton) {
@@ -178,11 +233,72 @@ class ShoppingListTableViewController: UITableViewController {
             
         }
     }
+
+
+}
+
+extension ShoppingListTableViewController: UIDocumentPickerDelegate {
     
-   
- 
-
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print(#function)
+    }
+    //복구 2.
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        //선택파일의 경로 확인
+        guard let selectedFileURL = urls.first else { //MultipleSelect 막아뒀으므로 퍼스트
+            showAlert(alterTitle: "선택하신 파일을 찾을 수 없습니다.", alertMessage: "")
+            return
+        }
+        
+        //도큐먼트 폴더까지 경로
+        guard let path = documentDirectoryPath() else {
+            showAlert(alterTitle: "도큐먼트 위치에 오류가 있습니다.", alertMessage: "")
+            return
+        }
+        
+        //압축파일의 경로 지정(lastPathComponent: 경로 마지막의 파일이름과 확장자까지 가져오기)
+        let sandboxFileURL = path.appendingPathComponent(selectedFileURL.lastPathComponent)
+        
+        //파일이 이미 존재하는지 확인
+        if FileManager.default.fileExists(atPath: sandboxFileURL.path){
+            
+            //압축해제
+            let fileURL = path.appendingPathComponent("SeSACDiary_1.zip")
+            
+            do {
+                //unzipFile(url:파일위치, destination: 풀어줄 위치, overwrite: 덮어씌울건지, pass:비번, progress: 진행도, fileoutputHandler: 압축해제 완료후 동작)
+                try Zip.unzipFile(fileURL, destination: path, overwrite: true, password: nil, progress: { progress in
+                    print("progress: \(progress)")
+                }, fileOutputHandler: { unzippedFile in
+                    print("unzippedFile: \(unzippedFile)")
+                    self.showAlert(alterTitle: "복구가 완료되었습니다", alertMessage: "")
+                })
+            } catch {
+                showAlert(alterTitle: "압축 해제에 실패했습니다.", alertMessage: "")
+            }
+            
+        } else {
+            
+            do {
+                //파일앱의 zip 도큐먼트로 복사
+                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
+                
+                //압축해제
+                let fileURL = path.appendingPathComponent("SeSACDiary_1.zip")
+                
+                //unzipFile(url:파일위치, destination: 풀어줄 위치, overwrite: 덮어씌울건지, pass:비번, progress: 진행도, fileoutputHandler: 압축해제 완료후 동작)
+                try Zip.unzipFile(fileURL, destination: path, overwrite: true, password: nil, progress: { progress in
+                    print("progress: \(progress)")
+                }, fileOutputHandler: { unzippedFile in
+                    self.showAlert(alterTitle: "복구가 완료되었습니다", alertMessage: "")
+                })
+                
+            } catch{
+                showAlert(alterTitle: "압축 해제에 실패했습니다.", alertMessage: "")
+            }
+            
+        }
+        
+    }
     
-
-
 }

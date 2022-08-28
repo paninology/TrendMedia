@@ -39,6 +39,9 @@
 		8F5904D8288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904D7288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift */; };
 		8F5904DA2886889100F98041 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904D92886889100F98041 /* SearchTableViewCell.swift */; };
 		8F5904DC288688EB00F98041 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5904DB288688EB00F98041 /* SearchTableViewController.swift */; };
+		8F5A21B028BB351300BD320E /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A21AF28BB351300BD320E /* FileManager+Extension.swift */; };
+		8F5A21B428BB36C600BD320E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A21B328BB36C600BD320E /* BaseViewController.swift */; };
+		8F5A21B828BB414D00BD320E /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 8F5A21B728BB414D00BD320E /* Zip */; };
 		8F855DA628B7596F001FC916 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8F855DA528B7596F001FC916 /* SnapKit */; };
 		8F855DA928B75C6E001FC916 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8F855DA828B75C6E001FC916 /* Realm */; };
 		8F855DAB28B75C6E001FC916 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8F855DAA28B75C6E001FC916 /* RealmSwift */; };
@@ -80,6 +83,8 @@
 		8F5904D7288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingUserTextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		8F5904D92886889100F98041 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8F5904DB288688EB00F98041 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		8F5A21AF28BB351300BD320E /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		8F5A21B328BB36C600BD320E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8F855DAF28B77A6E001FC916 /* ImageSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F5A21B828BB414D00BD320E /* Zip in Frameworks */,
 				8F855DAB28B75C6E001FC916 /* RealmSwift in Frameworks */,
 				8F855DA928B75C6E001FC916 /* Realm in Frameworks */,
 				8F54A4712887AE4B008F5B0F /* Kingfisher in Frameworks */,
@@ -112,6 +118,7 @@
 			children = (
 				8F5904C92886452B00F98041 /* UIViewController+Extension.swift */,
 				8F5904CB2886478D00F98041 /* UITextFeild+Extension.swift */,
+				8F5A21AF28BB351300BD320E /* FileManager+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -135,14 +142,11 @@
 		8F5904A22884DDDF00F98041 /* TrendMedia */ = {
 			isa = PBXGroup;
 			children = (
+				8F5A21B228BB36B200BD320E /* BaseViews */,
 				8F51B0E8288A258100880DD8 /* Extensions */,
 				8F4F11E428B348960041CE1E /* Realm */,
 				8F5904C3288640A400F98041 /* Intro.storyboard */,
-				8F5904D12886729800F98041 /* Shopping.storyboard */,
-				8F5904D7288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift */,
-				8F5904D32886774500F98041 /* ShoppingListTableViewCell.swift */,
-				8F5904D52886776800F98041 /* ShoppingListTableViewController.swift */,
-				8F58BE7F28B753540062A92E /* ShoppingDetailViewController.swift */,
+				8F5A21B128BB367800BD320E /* ShoppingList */,
 				8F855DAF28B77A6E001FC916 /* ImageSearchViewController.swift */,
 				8F5904BF2886401C00F98041 /* Search.storyboard */,
 				8F54A46728878C9E008F5B0F /* Movie.swift */,
@@ -171,6 +175,26 @@
 			path = TrendMedia;
 			sourceTree = "<group>";
 		};
+		8F5A21B128BB367800BD320E /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				8F5904D12886729800F98041 /* Shopping.storyboard */,
+				8F5904D32886774500F98041 /* ShoppingListTableViewCell.swift */,
+				8F5904D52886776800F98041 /* ShoppingListTableViewController.swift */,
+				8F5904D7288677A900F98041 /* ShoppingUserTextFieldTableViewCell.swift */,
+				8F58BE7F28B753540062A92E /* ShoppingDetailViewController.swift */,
+			);
+			path = ShoppingList;
+			sourceTree = "<group>";
+		};
+		8F5A21B228BB36B200BD320E /* BaseViews */ = {
+			isa = PBXGroup;
+			children = (
+				8F5A21B328BB36C600BD320E /* BaseViewController.swift */,
+			);
+			path = BaseViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -193,6 +217,7 @@
 				8F855DA828B75C6E001FC916 /* Realm */,
 				8F855DAA28B75C6E001FC916 /* RealmSwift */,
 				8F855DAD28B75D43001FC916 /* Toast */,
+				8F5A21B728BB414D00BD320E /* Zip */,
 			);
 			productName = TrendMedia;
 			productReference = 8F5904A02884DDDF00F98041 /* TrendMedia.app */;
@@ -230,6 +255,8 @@
 				8F855DA428B7596F001FC916 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				8F855DA728B75C6E001FC916 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				8F855DAC28B75D43001FC916 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				8F5A21B528BB3BAA00BD320E /* XCRemoteSwiftPackageReference "Zip" */,
+				8F5A21B628BB414D00BD320E /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = 8F5904A12884DDDF00F98041 /* Products */;
 			projectDirPath = "";
@@ -281,8 +308,10 @@
 				8F5904A82884DDDF00F98041 /* ViewController.swift in Sources */,
 				8F54A46A28879536008F5B0F /* MovieInfo.swift in Sources */,
 				8F5904DA2886889100F98041 /* SearchTableViewCell.swift in Sources */,
+				8F5A21B028BB351300BD320E /* FileManager+Extension.swift in Sources */,
 				8F5904A42884DDDF00F98041 /* AppDelegate.swift in Sources */,
 				8F5904D42886774500F98041 /* ShoppingListTableViewCell.swift in Sources */,
+				8F5A21B428BB36C600BD320E /* BaseViewController.swift in Sources */,
 				8F5904D62886776800F98041 /* ShoppingListTableViewController.swift in Sources */,
 				8F855DB028B77A6E001FC916 /* ImageSearchViewController.swift in Sources */,
 				8F5904A62884DDDF00F98041 /* SceneDelegate.swift in Sources */,
@@ -530,6 +559,22 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		8F5A21B528BB3BAA00BD320E /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		8F5A21B628BB414D00BD320E /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		8F855DA328B7590A001FC916 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -569,6 +614,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8F54A46F2887AE4B008F5B0F /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		8F5A21B728BB414D00BD320E /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F5A21B528BB3BAA00BD320E /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
 		};
 		8F855DA528B7596F001FC916 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
